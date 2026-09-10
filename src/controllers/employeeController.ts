@@ -3,7 +3,7 @@ import { iEmployee } from "../interfaces/employee";
 import { iEmployeeService } from "../interfaces/employeeService";
 
 export class EmployeeController {
-  constructor(private employeeService: iEmployeeService) {}
+  constructor(private readonly employeeService: iEmployeeService) {}
 
   create = async (
     req: Request,
@@ -18,24 +18,24 @@ export class EmployeeController {
     }
   };
 
-  async findAll(
+  findAll = async (
     _req: Request,
     res: Response,
     next: NextFunction,
-  ): Promise<void> {
+  ): Promise<void> =>{
     try {
       const employees = await this.employeeService.find();
-      res.json(200).json(employees);
+      res.status(200).json(employees);
     } catch (error) {
       next(error);
     }
   }
 
-  async findById(
+  findById = async(
     req: Request,
     res: Response,
     next: NextFunction,
-  ): Promise<void> {
+  ): Promise<void> =>{
     try {
       const { id } = req.params;
       const employee = await this.employeeService.findById(Number(id));

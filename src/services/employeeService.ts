@@ -4,7 +4,7 @@ import { iEmployeeRepository } from "../interfaces/employeeRepository";
 import { iEmployeeService } from "../interfaces/employeeService";
 
 export class EmployeeService implements iEmployeeService {
-  constructor(private employeeRepository: iEmployeeRepository) {}
+  constructor(private readonly employeeRepository: iEmployeeRepository) {}
 
   async create(employee: createEmployee): Promise<iEmployee | void> {
     const { name, position, baseSalary, yearsOfService } = employee;
