@@ -11,7 +11,7 @@ export class EmployeeRepository implements iEmployeeRepository {
     return await Employee.find().sort({ createdAt: -1 });
   }
 
-  async findById(id: number): Promise<iEmployee | null> {
+  async findById(id: string): Promise<iEmployee | null> {
     return await Employee.findById(id);
   }
 }

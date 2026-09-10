@@ -38,7 +38,7 @@ export class EmployeeController {
   ): Promise<void> =>{
     try {
       const { id } = req.params;
-      const employee = await this.employeeService.findById(Number(id));
+      const employee = await this.employeeService.findById(id.toString());
       res.status(200).json(employee);
     } catch (error) {
       next(error);

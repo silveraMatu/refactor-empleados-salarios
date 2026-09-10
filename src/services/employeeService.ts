@@ -52,7 +52,7 @@ export class EmployeeService implements iEmployeeService {
     return employees;
   }
 
-  async findById(id: number): Promise<iEmployee | null> {
+  async findById(id: string): Promise<iEmployee | null> {
     const employee = await this.employeeRepository.findById(id);
     if (!employee) throw new NotFoundError("No existe un empleado con esta id");
     return employee;
