@@ -5,3 +5,5 @@ export interface iEmployee {
   yearsOfService: number;
   finalSalary: number;
 }
+
+export type createEmployee = Omit<iEmployee, "finalSalary">
