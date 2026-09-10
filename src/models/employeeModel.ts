@@ -7,9 +7,9 @@ const employeeSchema = new Schema<iEmployee>( //Se agregó el generic <iEmployee
     position: { type: String, required: true },
     baseSalary: { type: Number, required: true },
     yearsOfService: { type: Number, required: true },
-    finalSalary: { type: Number, required: true }
+    finalSalary: { type: Number, required: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export const Employee = model('Employee', employeeSchema);
+export const Employee = model("Employee", employeeSchema);
